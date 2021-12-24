@@ -1,0 +1,13 @@
+:root {
+    --background: #444;
+    --borderDark: #555;
+    --borderLight: #999;
+    --selected: #A5A;
+    --selectedText: #FFF;
+    --text: #CCC;
+    --disabled: #666;
+}
+
+body {
+    filter: brightness(75%);
+}

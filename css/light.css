@@ -1,0 +1,9 @@
+:root {
+    --background: #FFF;
+    --borderDark: #555;
+    --borderLight: #999;
+    --selected: #B7B;
+    --selectedText: #FFF;
+    --text: #000;
+    --disabled: #DDD;
+}

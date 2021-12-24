@@ -1,0 +1,265 @@
+:root {
+    --small: 0.75em;
+    --normal: 1em;
+    --large: 1.5em;
+
+    --background: #FFF;
+    --borderDark: #555;
+    --borderLight: #999;
+    --disabled: #DDD;
+    --selected: #A5A;
+    --selectedText: #FFF;
+    --text: #000;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--normal);
+	margin: 0px;
+	padding: 0px;
+}
+
+/*
+ * HTML
+ */
+
+a,
+a:active,
+a:visited {
+    color: var(--text);
+    text-decoration: none;
+}
+
+body {
+    background: var(--background);
+    margin: auto;
+    margin-top: 10px;
+    width: 75%;
+}
+
+iframe {
+    height: 100%;
+    min-width: 100vh;
+    min-height: 70vh;
+    resize: both;
+    overflow: auto;
+}
+
+hr {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    border: 0px;
+    height: 2px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*
+ * Album
+ */
+
+div.album {
+    text-align: left;
+    width: 100%;
+}
+
+div.album img {
+    vertical-align: bottom; /* Voorkom witte lijn onder afbeelding. */
+}
+
+div.album div.item {
+    display: inline-block;
+    margin-right: 15px; 
+    margin-top: 15px;
+    overflow: hidden;
+    position: relative;
+    text-shadow: 1px 1px 4px #000;
+}
+
+div.album div.item:hover div.image {
+    transform: scale(1.1);
+    transition: transform 3s; /* Zoom in. */
+}
+
+div.album div.item:hover div.information {
+    bottom: 0px;
+}
+
+div.album div.item:hover div.overlay {
+    opacity: 0;
+    transition: all .25s ease-out 0s; /* Fade out. */
+}
+
+div.album div.item div.image {
+    transition: transform 1s; /* Zoom out. */
+}
+
+div.album div.item div.album {
+    bottom: 0px;
+    text-align: left;
+}
+
+div.album div.item div.item {
+    bottom: -50px; /* Verberg de div buiten het zichtbare gebied. */
+    text-align: center;
+}
+
+div.album div.item div.information {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-weight: bold;
+    line-height: 1.5em;
+    overflow: hidden;
+    padding: 5px;
+    position: absolute;
+    text-overflow: ellipsis;
+    transition: all .25s ease-out 0s; /* Slide in. */
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+}
+
+div.album div.item div.overlay {
+    left: 50%; /* Centreer afbeelding in div met position: absolute. */
+    top: 50%; /* Centreer afbeelding in div met position: absolute. */
+    opacity: 1;
+    position: absolute;
+    transform: translate(-50%, -50%); /* Centreer afbeelding in div met position: absolute. */
+    transition: all .25s ease-out 0s; /* Fade-in. */
+    z-index: 1;
+}
+
+/*
+ * Menu
+ */
+
+div.menu {
+    display: inline-block;
+}
+
+div.menu:hover div.options {
+    display: inline-block;
+}
+
+div.menu span {
+    font-size: var(--large);
+    font-weight: bold;
+}
+
+div.menu div.options {
+    background: #FFF;
+    border: solid 1px var(--borderDark);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    min-width: 250px;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+}
+
+div.menu div.options ul {
+    list-style-type: none;
+}
+
+div.menu div.options li a {
+    color: var(--borderDark);
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+div.menu div.options li a:hover {
+    background-color: var(--selected);
+    color: var(--selectedText);
+    text-shadow: 2px 2px var(--borderDark);
+}
+
+/*
+ * Navigation
+ */
+
+div.navigation {
+    display: inline;
+    font-size: var(--large);
+    font-weight: bold;
+}
+
+div.navigation a {
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+div.navigation span {
+    color: var(--disabled);
+}
+
+div.navigation a:hover {
+    background: var(--selected);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    color: var(--selectedText);
+    text-shadow: 2px 2px var(--borderDark);
+}
+
+/*
+ * Slideshow
+ */
+
+div.slideshow {
+    display: table;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+div.slideshow div.item {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    16% { opacity: 1; }
+    84% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/*
+ * Viewer
+ */
+
+div.viewer {
+    text-align: center;
+}
+
+div.viewer div.item {
+    height: 85vh;
+    text-align: center;
+}
+
+div.viewer div.item img,
+div.viewer div.item video {
+    height: 100%;
+    max-width: 100%;
+}
+
+/*
+ * Mobile
+ */
+@media only screen and (max-width: 600px) {
+
+    div.album div.item {
+        max-width: 95%;
+    }
+
+    div.viewer div.item {
+        height: auto;
+    }
+
+    div.viewer div.item img {
+        height: auto;
+    }
+
+}
